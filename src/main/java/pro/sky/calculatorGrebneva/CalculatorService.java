@@ -28,9 +28,6 @@ public class CalculatorService {
         if (num1==null || num2==null) {
             throw new RuntimeException("Нужно передать оба параметра.");
         }
-        if (num2==0){
-            throw new IllegalArgumentException("На ноль делить нельзя!");
-        }
         return (double)num1/num2;
     }
 }
