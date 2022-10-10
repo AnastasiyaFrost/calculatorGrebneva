@@ -11,6 +11,7 @@ public class CalculatorController {
     private CalculatorService calculatorService;
 
     public CalculatorController(CalculatorService calculatorService) {
+
         this.calculatorService = calculatorService;
     }
 
@@ -21,28 +22,21 @@ public class CalculatorController {
 
     @GetMapping(path = "/calculator/plus")
     public String plus(@RequestParam Integer num1, @RequestParam Integer num2) {
-        int plus = calculatorService.plus(num1,num2);
-        return num1 + "+" + num2 + "=" + plus;
+        return num1 + "+" + num2 + "=" + calculatorService.plus(num1, num2);
     }
 
     @GetMapping(path = "/calculator/minus")
     public String minus(@RequestParam Integer num1, @RequestParam Integer num2) {
-        int minus = calculatorService.minus(num1, num2);
-        return num1 + "-" + num2 + "=" + minus;
+        return num1 + "-" + num2 + "=" + calculatorService.minus(num1, num2);
     }
 
-    @GetMapping(path = "/calculator/multyply")
-    public String multyply(@RequestParam Integer num1, @RequestParam Integer num2) {
-        int multyply = calculatorService.multyply(num1, num2);
-        return num1 + "*" + num2 + "=" + multyply;
+    @GetMapping(path = "/calculator/multiply")
+    public String multiply(@RequestParam Integer num1, @RequestParam Integer num2) {
+        return num1 + "*" + num2 + "=" + calculatorService.multiply(num1, num2);
     }
 
     @GetMapping(path = "/calculator/divide")
     public String divide(@RequestParam Integer num1, @RequestParam Integer num2) {
-        if (num2==0) {
-            return "На ноль делить нельзя.";
-        }
-        double divide = calculatorService.divide(num1, num2);
-        return num1 + "/" + num2 + "=" + divide;
+        return num1 + "/" + num2 + "=" + calculatorService.divide(num1, num2);
     }
 }
